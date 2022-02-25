@@ -12,3 +12,5 @@ export const Brand = ({ accent, primary }: BrandProps) => {
     </>
   );
 };
+
+export default Brand;
