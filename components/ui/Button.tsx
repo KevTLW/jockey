@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  theme: "default" | "primary";
+  theme?: "default" | "primary";
 }
 
 export const Button = ({
