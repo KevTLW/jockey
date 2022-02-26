@@ -1,12 +1,12 @@
 import { AppProps } from "next/app";
-import Script from "next/script";
 import "tailwindcss/tailwind.css";
 
 export const _App = ({ Component, pageProps }: AppProps) => {
   return (
-    <div className="container mx-auto font-mono antialiased">
-      <Component {...pageProps} />
-      <Script src="theme.js" strategy="beforeInteractive" />
+    <div className="bg-gray-100 font-mono antialiased dark:bg-gray-900">
+      <div className="container mx-auto">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 };
