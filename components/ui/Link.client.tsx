@@ -16,7 +16,7 @@ const Link = ({ children, className, href, theme }: LinkProps) => {
   ];
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href}>
       <a className={classes.filter(Boolean).join(" ")}>{children}</a>
     </NextLink>
   );
