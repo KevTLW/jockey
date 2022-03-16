@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.6",
     "@types/grecaptcha": "^3.0.3",
     "firebase": "^9.6.8",
     "jotai": "^1.6.0",
