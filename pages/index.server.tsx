@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "../components/ui/Link.client";
+import CallToAction from "../components/ui/CallToAction.client";
 
 const Index = () => {
   return (
@@ -23,9 +23,7 @@ const Index = () => {
           manage song requests, music priority, and share it all on jockey ––
           and keep your guests in the groove at the same time
         </h2>
-        <Link theme="primary" href="#">
-          use jockey
-        </Link>
+        <CallToAction />
       </div>
     </main>
   );
