@@ -16,7 +16,9 @@ const CallToAction = () => {
   return (
     <>
       {user ? (
-        <Link href="/party">use jockey</Link>
+        <Link theme="primary" href="/party">
+          use jockey
+        </Link>
       ) : (
         <Button theme="primary" onClick={handleCallToAction}>
           use jockey
