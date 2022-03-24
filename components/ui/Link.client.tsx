@@ -1,13 +1,14 @@
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 interface LinkProps extends NextLinkProps {
   theme?: "default" | "primary" | "positive" | "danger";
   className?: string;
   children?: ReactNode;
+  onClick?: MouseEventHandler;
 }
 
-const Link = ({ children, className, href, theme }: LinkProps) => {
+const Link = ({ children, className, href, theme, ...props }: LinkProps) => {
   const classes = [
     className,
     "inline-block rounded border-2 bg-transparent px-4 py-2 text-center font-bold shadow-xl transition duration-300 focus:outline-none focus:ring",
@@ -21,7 +22,9 @@ const Link = ({ children, className, href, theme }: LinkProps) => {
 
   return (
     <NextLink href={href}>
-      <a className={classes.filter(Boolean).join(" ")}>{children}</a>
+      <a className={classes.filter(Boolean).join(" ")} {...props}>
+        {children}
+      </a>
     </NextLink>
   );
 };
