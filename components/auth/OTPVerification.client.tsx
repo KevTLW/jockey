@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { forwardRef } from "react";
 import { useSignInWithPhoneNumber } from "../../hooks/useSignInWithPhoneNumber";
 import { auth } from "../../utils/firebase";
-import Button from "../ui/Button";
+import Button from "../ui/Button.client";
 
 interface OTPVerificationProps {
   verifyOTP: (code: string) => Promise<boolean>;

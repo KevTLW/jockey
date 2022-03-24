@@ -4,7 +4,7 @@ import { useEffect, useReducer, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth_errorAtom } from "../../state/atoms";
 import { auth } from "../../utils/firebase";
-import Button from "./Button";
+import Button from "./Button.client";
 import Modal from "./Modal.client";
 
 const CallToAction = () => {

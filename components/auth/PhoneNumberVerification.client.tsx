@@ -2,7 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { forwardRef } from "react";
 import { useSignInWithPhoneNumber } from "../../hooks/useSignInWithPhoneNumber";
 import { auth } from "../../utils/firebase";
-import Button from "../ui/Button";
+import Button from "../ui/Button.client";
 
 interface PhoneNumberVerificationProps {
   closeModal: () => void;
