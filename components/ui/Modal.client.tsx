@@ -5,7 +5,7 @@ import { Dispatch, Fragment, SetStateAction, useRef } from "react";
 import { auth_errorAtom, auth_verifiedNumberAtom } from "../../state/atoms";
 import Form from "../auth/Form.client";
 import Brand from "./Brand";
-import Button from "./Button";
+import Button from "./Button.client";
 
 interface ModalProps {
   isOpen: boolean;
