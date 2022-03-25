@@ -1,11 +1,11 @@
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import { MouseEventHandler, ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 interface LinkProps extends NextLinkProps {
   theme?: "default" | "primary" | "positive" | "danger";
   className?: string;
   children?: ReactNode;
-  onClick?: MouseEventHandler;
+  onClick?: (e: MouseEvent) => any;
 }
 
 const Link = ({ children, className, href, theme, ...props }: LinkProps) => {
