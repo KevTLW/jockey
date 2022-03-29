@@ -71,3 +71,11 @@ export const searchSpotify = async (query: string) => {
     console.error(error);
   }
 };
+
+export const fetchTracks = async (query: string, signal: AbortSignal) => {
+  const tracks: TrackItem[] = await fetch(`/api/search?query=${query}`, {
+    signal,
+  }).then((res) => res.json());
+
+  return tracks;
+};
