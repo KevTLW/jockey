@@ -31,7 +31,11 @@ export const OTPVerification = forwardRef<
         try {
           const loggedIn = await verifyOTP(values.code);
           if (loggedIn) {
-            router.push("/party");
+            router.push(
+              `/party/${
+                Boolean(router.query?.party) ? router.query?.party : ""
+              }`
+            );
           }
         } catch (error) {
           console.error(error);
