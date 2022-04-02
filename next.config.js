@@ -3,4 +3,7 @@ module.exports = {
     runtime: "nodejs",
     serverComponents: true,
   },
+  images: {
+    domains: ["i.scdn.co"],
+  },
 };
