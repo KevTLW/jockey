@@ -22,7 +22,8 @@
     "react-dom": "^18.0.0-rc.0",
     "react-firebase-hooks": "^5.0.3",
     "react-qr-code": "^2.0.5",
-    "react-query": "^3.34.19"
+    "react-query": "^3.34.19",
+    "use-debounce": "^7.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
