@@ -1,3 +1,5 @@
+import { Request } from "../queries/useRequests";
+
 interface Track {
   items: TrackItem[];
 }
@@ -73,7 +75,7 @@ export const searchSpotify = async (query: string) => {
 };
 
 export const fetchTracks = async (query: string, signal: AbortSignal) => {
-  const tracks: TrackItem[] = await fetch(`/api/search?query=${query}`, {
+  const tracks: Request[] = await fetch(`/api/search?query=${query}`, {
     signal,
   }).then((res) => res.json());
 
