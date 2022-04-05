@@ -7,8 +7,9 @@ import {
 import { useDocumentData } from "react-firebase-hooks/firestore";
 
 export interface Party {
-  host: string;
+  allowsExplicit: boolean;
   createdAt: Date;
+  host: string;
 }
 
 export interface UseParty {
