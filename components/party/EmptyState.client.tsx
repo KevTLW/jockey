@@ -19,6 +19,7 @@ export const EmptyState = ({ type }: EmptyStateProps) => {
     e.preventDefault();
 
     const doc = await addDoc(collection(db, "parties"), {
+      allowsExplicit: true,
       host: user?.phoneNumber,
       createdAt: new Date(),
     });
