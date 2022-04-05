@@ -20,7 +20,7 @@ export const Requests = ({
   router,
   user,
 }: RequestsProps) => {
-  if (!loading) {
+  if (loading) {
     return <LoadingSong amount={3} />;
   }
 
