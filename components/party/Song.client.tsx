@@ -124,7 +124,12 @@ export const Song = ({
       />
 
       <div className="flex flex-col justify-center overflow-hidden text-center sm:text-left">
-        <h2 className="truncate text-2xl font-bold text-sky-300 dark:text-sky-700">
+        {request.explicit && (
+          <p className="mx-auto w-fit rounded bg-slate-800 p-1 text-xs font-semibold dark:bg-slate-200 sm:mx-0">
+            explicit
+          </p>
+        )}
+        <h2 className="mt-1 truncate text-2xl font-bold text-sky-300 dark:text-sky-700">
           {request.name}
         </h2>
         <h3 className="truncate text-lg font-semibold">
