@@ -11,13 +11,14 @@ import { auth, db } from "../../utils/firebase";
 import Info from "../party/Info.client";
 import Requests from "../party/Requests.client";
 import Search from "../party/Search.client";
+import Settings from "../party/Settings.client";
 
 export const PartyLobby = () => {
   const router = useRouter();
   const [user] = useAuthState(auth);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebounce(search, 300);
-  const [sections] = useState(["info", "requests", "search"]);
+  const [sections] = useState(["info", "requests", "search", "settings"]);
   const { party, loading: partyLoading } = useParty(
     db,
     router.query?.id as string
@@ -76,6 +77,9 @@ export const PartyLobby = () => {
               router={router}
               user={user}
             />
+          </Tab.Panel>
+          <Tab.Panel className="p-4 text-center ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2">
+            <Settings party={party} router={router} user={user} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
