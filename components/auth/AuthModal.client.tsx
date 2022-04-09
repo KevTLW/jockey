@@ -3,16 +3,16 @@ import { XIcon } from "@heroicons/react/outline";
 import { useAtom, useAtomValue } from "jotai";
 import { Dispatch, Fragment, SetStateAction, useRef } from "react";
 import { auth_errorAtom, auth_verifiedNumberAtom } from "../../state/atoms";
-import Form from "../auth/Form.client";
-import Brand from "./Brand";
-import Button from "./Button.client";
+import Form from "./Form.client";
+import Brand from "../ui/Brand";
+import Button from "../ui/Button.client";
 
-interface ModalProps {
+interface AuthModalProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
+const AuthModal = ({ isOpen, setIsOpen }: AuthModalProps) => {
   const phoneNumberInputRef = useRef(null);
   const otpInputRef = useRef(null);
   const verifiedNumber = useAtomValue(auth_verifiedNumberAtom);
@@ -97,4 +97,4 @@ const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default AuthModal;

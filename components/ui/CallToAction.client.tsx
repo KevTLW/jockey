@@ -2,17 +2,17 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
+import AuthModal from "../auth/AuthModal.client";
 import Button from "./Button.client";
 import Link from "./Link.client";
-import Modal from "./Modal.client";
 
 const CallToAction = () => {
   const router = useRouter();
   const [user] = useAuthState(auth);
-  const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
+  const [authModalIsOpen, setAuthModalIsOpen] = useState(false);
 
   const handleCallToActionUnauthed = () => {
-    setLoginModalIsOpen(true);
+    setAuthModalIsOpen(true);
   };
 
   return (
@@ -31,7 +31,7 @@ const CallToAction = () => {
           use jockey
         </Button>
       )}
-      <Modal isOpen={loginModalIsOpen} setIsOpen={setLoginModalIsOpen} />
+      <AuthModal isOpen={authModalIsOpen} setIsOpen={setAuthModalIsOpen} />
     </>
   );
 };
