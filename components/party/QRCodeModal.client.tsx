@@ -77,7 +77,10 @@ const QRCodeModal = ({ isOpen, setIsOpen }: QRCodeModalProps) => {
                   primary="text-slate-900 dark:text-slate-50"
                 />
               </h1>
-              <QrReader constraints={{}} onResult={handleResult} />
+              <QrReader
+                constraints={{ facingMode: "environment" }}
+                onResult={handleResult}
+              />
             </div>
           </Transition.Child>
         </div>
