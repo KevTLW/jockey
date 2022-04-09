@@ -1,4 +1,5 @@
 import {
+  BanIcon,
   ThumbDownIcon,
   ThumbUpIcon,
   TrashIcon,
@@ -175,7 +176,11 @@ export const Song = ({
                   onClick={() => handleRequesting(request)}
                   disabled={!party?.allowsExplicit && request.explicit}
                 >
-                  <ThumbUpIcon className="h-5 w-5" />
+                  {!party?.allowsExplicit && request.explicit ? (
+                    <BanIcon className="h-5 w-5" />
+                  ) : (
+                    <ThumbUpIcon className="h-5 w-5" />
+                  )}
                 </Button>
               ))}
 
