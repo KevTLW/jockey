@@ -66,7 +66,7 @@ export const Settings = ({ party, router, user }: SettingsProps) => {
   return (
     <ul className="mx-auto w-full max-w-xl space-y-4">
       {user?.phoneNumber === party?.host && (
-        <li className="flex justify-between">
+        <li className="flex items-center justify-between gap-2">
           <p className="text-left">toggle explicit mode</p>
           <Button
             theme={party?.allowsExplicit ? "danger" : "positive"}
@@ -76,7 +76,7 @@ export const Settings = ({ party, router, user }: SettingsProps) => {
           </Button>
         </li>
       )}
-      <li className="flex justify-between">
+      <li className="flex items-center justify-between gap-2">
         <p className="text-left">sign out</p>
         <Link href="/" theme="danger" onClick={handleSignOut}>
           sign out
