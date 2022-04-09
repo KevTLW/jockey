@@ -1,5 +1,6 @@
 import { User } from "firebase/auth";
 import { NextRouter } from "next/router";
+import { Flipper } from "react-flip-toolkit";
 import { Party } from "../../queries/useParty";
 import { Request } from "../../queries/useRequests";
 import LoadingSong from "./LoadingSong.client";
@@ -33,19 +34,21 @@ export const Requests = ({
   }
 
   return (
-    <ul className="mx-auto w-full max-w-xl space-y-4">
-      {requests?.map((request) => (
-        <Song
-          party={party}
-          request={request}
-          type="request"
-          user={user}
-          key={request.id}
-          requests={requests}
-          router={router}
-        />
-      ))}
-    </ul>
+    <Flipper flipKey={requests?.map((request) => request.id).join()}>
+      <ul className="mx-auto w-full max-w-xl space-y-4">
+        {requests?.map((request) => (
+          <Song
+            party={party}
+            request={request}
+            type="request"
+            user={user}
+            key={request.id}
+            requests={requests}
+            router={router}
+          />
+        ))}
+      </ul>
+    </Flipper>
   );
 };
 
