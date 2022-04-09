@@ -46,7 +46,11 @@ export const Info = ({ party, router, user }: InfoProps) => {
   return (
     <>
       <div className="inline-block rounded bg-slate-900 p-4 dark:bg-slate-50">
-        <QRCode className="text-center" value={window.location.href} />
+        <QRCode
+          className="text-center"
+          size={200}
+          value={window.location.href}
+        />
       </div>
       <h2 className="mt-4 text-xl font-bold text-slate-900 dark:text-slate-50  md:text-3xl">
         {router.query?.id}
