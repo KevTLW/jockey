@@ -26,6 +26,10 @@ export const Settings = ({ party, router, user }: SettingsProps) => {
   const signOut = useSignOut(auth);
 
   const handleExplicitModeToggle = async () => {
+    if (user?.phoneNumber !== party?.host) {
+      return;
+    }
+
     const document = doc(db, "parties", router.query?.id as string);
 
     await updateDoc(document, {
@@ -61,15 +65,17 @@ export const Settings = ({ party, router, user }: SettingsProps) => {
 
   return (
     <ul className="mx-auto w-full max-w-xl space-y-4">
-      <li className="flex justify-between">
-        <p className="text-left">toggle explicit mode</p>
-        <Button
-          theme={party?.allowsExplicit ? "danger" : "positive"}
-          onClick={handleExplicitModeToggle}
-        >
-          {party?.allowsExplicit ? "disable" : "enable"}
-        </Button>
-      </li>
+      {user?.phoneNumber === party?.host && (
+        <li className="flex justify-between">
+          <p className="text-left">toggle explicit mode</p>
+          <Button
+            theme={party?.allowsExplicit ? "danger" : "positive"}
+            onClick={handleExplicitModeToggle}
+          >
+            {party?.allowsExplicit ? "disable" : "enable"}
+          </Button>
+        </li>
+      )}
       <li className="flex justify-between">
         <p className="text-left">sign out</p>
         <Link href="/" theme="danger" onClick={handleSignOut}>
