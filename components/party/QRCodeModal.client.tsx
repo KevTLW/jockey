@@ -71,15 +71,19 @@ const QRCodeModal = ({ isOpen, setIsOpen }: QRCodeModalProps) => {
                   <XIcon className="h-5 w-5" />
                 </Button>
               </div>
-              <h1 className="mb-2 text-center text-4xl font-bold">
+              <h1 className="text-center text-4xl font-bold">
                 <Brand
                   accent="text-sky-700 dark:text-sky-300"
                   primary="text-slate-900 dark:text-slate-50"
                 />
               </h1>
+              <h2 className="mt-4 text-2xl font-semibold">scan party code</h2>
               <QrReader
                 constraints={{ facingMode: "environment" }}
                 onResult={handleResult}
+                className="mt-4"
+                videoContainerStyle={{ padding: "0rem" }}
+                videoStyle={{ position: "static" }}
               />
             </div>
           </Transition.Child>
