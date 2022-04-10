@@ -1,3 +1,4 @@
+import { Transition } from "@headlessui/react";
 import { User } from "firebase/auth";
 import {
   collection,
@@ -8,12 +9,12 @@ import {
   where,
 } from "firebase/firestore";
 import { NextRouter } from "next/router";
+import { Fragment, MouseEvent, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { Party } from "../../queries/useParty";
 import { db } from "../../utils/firebase";
 import Button from "../ui/Button.client";
 import Link from "../ui/Link.client";
-import { MouseEvent } from "react";
 
 interface InfoProps {
   party: Party | undefined;
@@ -22,6 +23,17 @@ interface InfoProps {
 }
 
 export const Info = ({ party, router, user }: InfoProps) => {
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+
+  const handleTooltipClick = () => {
+    setIsTooltipOpen(true);
+    navigator.clipboard.writeText(window.location.href);
+  };
+
+  useEffect(() => {
+    setTimeout(() => setIsTooltipOpen(false), 1000);
+  }, [isTooltipOpen]);
+
   const handleEndParty = async (e: MouseEvent<Element>) => {
     e.preventDefault();
 
@@ -56,7 +68,25 @@ export const Info = ({ party, router, user }: InfoProps) => {
         {router.query?.id}
       </h2>
       <div className="mt-4 space-x-2">
-        <Button theme="primary">share party</Button>
+        <div className="relative inline-block">
+          <Button theme="primary" onClick={handleTooltipClick}>
+            share party
+          </Button>
+          <Transition
+            as={Fragment}
+            show={isTooltipOpen}
+            enter="transition ease-out duration-200"
+            enterFrom="opacity-0 translate-y-1"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 translate-y-1"
+          >
+            <div className="absolute left-1/2 z-10 mt-2 -translate-x-1/2 transform overflow-hidden rounded bg-sky-900 px-4 py-2 text-slate-50 shadow-xl shadow-sky-500/25 dark:bg-slate-50 dark:text-slate-900 dark:shadow-sky-300/25">
+              copied!
+            </div>
+          </Transition>
+        </div>
 
         {party?.host === user?.phoneNumber ? (
           <Link href="/party" onClick={handleEndParty} theme="danger">
