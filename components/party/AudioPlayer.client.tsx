@@ -23,7 +23,7 @@ export const AudioPlayer = ({ request }: { request: Request }) => {
   };
 
   return (
-    <Button theme="primary-inverse" className="mt-2 !p-2">
+    <Button theme="special-inverse" className="mt-2 !p-2">
       {playing ? (
         <VolumeOffIcon className="h-5 w-5" onClick={handleClick} />
       ) : (
