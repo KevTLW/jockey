@@ -22,6 +22,7 @@ import { Party } from "../../queries/useParty";
 import { Request } from "../../queries/useRequests";
 import { db } from "../../utils/firebase";
 import Button from "../ui/Button.client";
+import AudioPlayer from "./AudioPlayer.client";
 
 interface SongProps {
   request: Request;
@@ -57,6 +58,7 @@ export const Song = ({
         image: request.image,
         name: request.name,
         party: router.query?.id,
+        preview_url: request.preview_url,
         requesters: [user?.phoneNumber],
       };
 
@@ -201,6 +203,8 @@ export const Song = ({
                   <ThumbUpIcon className="h-5 w-5" />
                 </Button>
               ))}
+
+            {request.preview_url !== null && <AudioPlayer request={request} />}
 
             {type === "request" && user?.phoneNumber === party?.host && (
               <Button
