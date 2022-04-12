@@ -31,7 +31,6 @@ export const OTPVerification = forwardRef<
         try {
           const loggedIn = await verifyOTP(values.code);
           if (loggedIn) {
-            resetVerification();
             router.push(
               `/party/${
                 Boolean(router.query?.party) ? router.query?.party : ""
