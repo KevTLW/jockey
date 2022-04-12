@@ -75,7 +75,7 @@ export const OTPVerification = forwardRef<
           <Button
             id="sign-in-button"
             type="button"
-            theme="primary"
+            theme="special"
             className="ml-2 w-full"
             onClick={resendOTP}
           >
