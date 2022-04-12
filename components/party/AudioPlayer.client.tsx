@@ -24,7 +24,7 @@ export const AudioPlayer = ({ request }: { request: Request }) => {
 
   return (
     <Button theme="special-inverse" className="mt-2 !p-2">
-      {playing ? (
+      {playing && songPlaying === request.preview_url ? (
         <VolumeOffIcon className="h-5 w-5" onClick={handleClick} />
       ) : (
         <VolumeUpIcon className="h-5 w-5" onClick={handleClick} />
