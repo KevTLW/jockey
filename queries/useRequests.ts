@@ -16,6 +16,7 @@ export interface Request {
   image: string;
   name: string;
   party: string;
+  preview_url: string;
   requesters: string[];
 }
 

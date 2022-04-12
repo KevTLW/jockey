@@ -10,6 +10,7 @@ interface TrackItem {
   explicit: boolean;
   id: string;
   name: string;
+  preview_url: string;
 }
 
 interface Artist {

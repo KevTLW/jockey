@@ -12,6 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         image: track.album.images[0].url,
         name: track.name,
         explicit: track.explicit,
+        preview_url: track.preview_url,
       };
     });
 
