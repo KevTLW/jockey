@@ -12,6 +12,7 @@ const Index = () => {
             height={725.77}
             layout="responsive"
             alt=""
+            priority
           />
         </div>
       </div>
