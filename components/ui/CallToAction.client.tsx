@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -17,6 +18,9 @@ const CallToAction = () => {
 
   return (
     <>
+      <Head>
+        <title key="title">jockey</title>
+      </Head>
       {user ? (
         <Link
           theme="primary"
